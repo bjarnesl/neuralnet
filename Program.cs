@@ -3,7 +3,7 @@ using System.Xml;
 
 Console.WriteLine("Hello, World!");
 
-List<int> inputs = [0,1,1,1,1,1,0,0];
+List<double> inputs = [0,1,1,1,1,1,0,0];
 
 var firstLayer =  new Layer(0, [
             new Sigmoid(0, 0,inputs,[0,1,1,0,0,0,0,0],0),
@@ -22,7 +22,6 @@ var secondLayer =  new Layer(1, [
 
 var myNet = new Net(){Layers = [firstLayer,secondLayer]};
 
-var output = myNet.Layers.Last().Nodes.Select(n => n.Output());
-Console.WriteLine(string.Join(",", output));
+var output = myNet.Layers.Last().Nodes.Select(n => n.Output()).ToList();
 
 Console.WriteLine("Goodbye, cruel world");
